@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 interface MenuItem {
   name: string;
@@ -35,6 +36,10 @@ const Menu = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <Link href="/">
+        <button className="mb-4 px-4 py-2 bg-gray-300 hover:bg-gray-400 text-black font-semibold rounded-lg shadow-md">Back to Home</button>
+      </Link>
+
       <h1 className="text-3xl font-bold text-center mb-6">Restaurant Menu</h1>
       {menuData && (
         <div className="flex justify-center mb-6 border-b">
