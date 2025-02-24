@@ -30,7 +30,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="bg-cover bg-center h-96 flex flex-col justify-center items-center text-white bg-gray-800 rounded-lg shadow-lg" style={{ backgroundImage: "url('/restaurant-hero.jpg')" }}>
         <h1 className="text-5xl font-bold mb-2">Taste the flavours of Turkey</h1>
-        <p className="text-lg">Savor authentic Turkish dishes in a warm setting.</p>
+        <p className="text-lg">Savour authentic Turkish dishes in a warm setting.</p>
         <Link href="/menu">
           <button className="mt-4 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md">View Menu</button>
         </Link>
