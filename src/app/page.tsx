@@ -2,12 +2,23 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaTripadvisor } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaChevronDown, FaChevronUp, FaTripadvisor } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
 const HomePage = () => {
   const [showBanner, setShowBanner] = useState(true);
+  const [showHours, setShowHours] = useState(false);
+  const [workingHours, setWorkingHours] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    fetch('/opening-hours.json')
+      .then(response => response.json())
+      .then(data => setWorkingHours(data))
+      .catch(error => console.error('Error fetching working hours:', error));
+  }, []);
+
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
  
   return (
     <div className="container mx-auto p-6 text-center">
@@ -47,17 +58,17 @@ const HomePage = () => {
         <h2 className="text-3xl font-bold mb-4">News & Updates</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-4 rounded-lg shadow-lg">
-            <Image src="/iftar-menu.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
+            <Image width={2268} height={3213} src="/iftar-menu.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
             <h3 className="text-xl font-semibold">Iftar Menu for Ramadan</h3>
             <p className="text-gray-600">Join us for a special Iftar menu with traditional delicacies.</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-lg">
-            <Image src="/lunch-menu.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
+            <Image width={2268} height={3213} src="/lunch-menu.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
             <h3 className="text-xl font-semibold">Lunch Menu</h3>
             <p className="text-gray-600">Enjoy our exclusive lunch offerings at special prices.</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-lg">
-            <Image src="/belly-dancer.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
+            <Image width={2268} height={3213} src="/belly-dancer.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
             <h3 className="text-xl font-semibold">Belly Dancer on Fridays and Saturdays</h3>
             <p className="text-gray-600">Experience an exciting live performance while dining.</p>
           </div>
@@ -69,6 +80,24 @@ const HomePage = () => {
         <h2 className="text-3xl font-bold mb-4">About Us</h2>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Our restaurant offers an authentic Turkish Mediterranean dining experience, blending traditional flavours with modern culinary techniques. Join us for an unforgettable meal!
+        </p>
+
+        {/* Working Hours Collapsible Section */}
+        <div className="mt-4">
+          <button onClick={() => setShowHours(!showHours)} className="text-lg text-gray-600 hover:text-gray-800 flex items-center justify-center gap-2 w-full text-center">
+            {`Open Today: ${workingHours[today]}`} <span className="ml-2">{showHours ? <FaChevronUp /> : <FaChevronDown />}</span>
+          </button>
+          {showHours && (
+            <div className="mt-2 bg-gray-100 p-4 rounded-lg shadow text-center flex flex-col items-center">
+              {Object.entries(workingHours).map(([day, hours]) => (
+                <div key={day} className="flex justify-between w-full max-w-xs gap-8"><span className={`text-gray-700 text-right w-1/2 ${day === today ? 'font-bold' : ''}`}>{day}</span><span className={`text-gray-700 text-left w-1/2 ${day === today ? 'font-bold' : ''}`}>{hours}</span></div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          *Kitchen closes at 11 pm
         </p>
 
         <APIProvider apiKey={"AIzaSyB1r6KLeOckdZB1etKkPHjFTDwxxWUHKYY"}>
