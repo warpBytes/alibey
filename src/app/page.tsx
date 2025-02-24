@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronDown, FaChevronUp, FaTripadvisor } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp, FaInstagram, FaTripadvisor } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
@@ -30,12 +30,17 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Header with TripAdvisor Icon */}
+      {/* Header with Social Icon */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Ali Bey</h1>
-        <Link href="https://www.tripadvisor.co.uk/Restaurant_Review-g504182-d32980817-Reviews-Ali_Bey-Sutton_Greater_London_England.html" target="_blank" rel="noopener noreferrer">
-          <FaTripadvisor className="text-green-600 text-3xl hover:text-green-800" />
-        </Link>
+        <div className="flex space-x-2">
+          <Link href="https://www.instagram.com/alibeyrestaurantbar/" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="text-pink-600 text-3xl hover:text-pink-800" />
+          </Link>
+          <Link href="https://www.tripadvisor.co.uk/Restaurant_Review-g504182-d32980817-Reviews-Ali_Bey-Sutton_Greater_London_England.html" target="_blank" rel="noopener noreferrer">
+            <FaTripadvisor className="text-green-600 text-3xl hover:text-green-800" />
+          </Link>
+        </div>
       </div>
 
       {/* Hero Section */}
