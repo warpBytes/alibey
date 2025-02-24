@@ -58,7 +58,7 @@ const HomePage = () => {
           </div>
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <Image src="/belly-dancer.jpg" alt="Iftar Menu" className="w-full h-128 object-cover rounded" />
-            <h3 className="text-xl font-semibold">Belly Dancer on Friday and Saturday</h3>
+            <h3 className="text-xl font-semibold">Belly Dancer on Fridays and Saturdays</h3>
             <p className="text-gray-600">Experience an exciting live performance while dining.</p>
           </div>
         </div>
