@@ -15,6 +15,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ali Bey",
   description: "A Turkish Mediterranean restaurant in the heart of Sutton",
+  openGraph: {
+    type: "website",
+    url: "https://www.alibey.co.uk",
+    title: "Ali Bey",
+    description: "A Turkish Mediterranean restaurant in the heart of Sutton",
+    siteName: "Ali Bey",
+    images: [{
+      url: "https://www.alibey.co.uk/restaurant-hero.jpg",
+      type: "image/jpeg",
+      width: 1400,
+      height: 1050,
+      alt: "Restaurant interior"
+    }]
+  }
 };
 
 export default function RootLayout({
