@@ -14,7 +14,7 @@ const HomePage = () => {
       {/* Dismissable Banner at the Bottom */}
       {showBanner && (
         <div className="fixed bottom-0 left-0 w-full bg-gray-200 text-gray-800 p-4 text-center flex justify-between items-center">
-          <p className="text-sm">This website does not use cookies and attempts its best at avoiding any tracking.</p>
+          <p className="text-sm">This website uses essential cookies set by external providers to ensure proper functionality. By continuing to use this site, you accept their use.</p>
           <button onClick={() => setShowBanner(false)} className="text-gray-600 hover:text-gray-900 font-semibold">Dismiss</button>
         </div>
       )}
