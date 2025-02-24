@@ -50,6 +50,7 @@ const HomePage = () => {
       {/* Navigation */}
       <div className="flex justify-center space-x-6 my-6">
         <Link href="/menu" className="text-lg font-semibold text-blue-600 hover:underline">Menu</Link>
+        <Link href="#contact" className="text-lg font-semibold text-blue-600 hover:underline">Book Now</Link>
         <a href="#contact" className="text-lg font-semibold text-blue-600 hover:underline">Contact</a>
       </div>
 
