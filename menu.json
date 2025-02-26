@@ -444,8 +444,8 @@
             {"name": "Florida Berry's", "description": "Pink Gin, Fresh Raspberry Fruit, Lemonade, Touch of Fresh Lime Juice. Served with Rose Prosecco", "price": 11.50},
             {"name": "Purple Butterfly", "description": "Butterfly Purple Gin, Prosecco & Lemonade", "price": 11.50},
             {"name": "Long Island Iced Tea", "description": "Vodka, Gin, Tequila, White Rum, Triple Sec & Lemon Juice with Coke", "price": 11.90},
-            {"name": "Pitchers", "description": "Some unavailable, ask for more details", "price": 35.00},
             {"name": "Aperol Spritz", "description": "Aperol, Prosecco & Soda Water", "price": 10.50}
+            {"name": "Pitchers", "description": "Some unavailable, ask for more details", "price": 35.00},
         ],
         "Non-alcoholic": [
             {"name": "Virgin Colada", "description": "Pineapple Juice, Coconut, Cream", "price": 5.90},
