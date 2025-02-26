@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 import { FaChevronDown, FaChevronUp, FaInstagram, FaTripadvisor } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
@@ -10,12 +11,36 @@ const HomePage = () => {
   const [showBanner, setShowBanner] = useState(true);
   const [showHours, setShowHours] = useState(false);
   const [workingHours, setWorkingHours] = useState<{ [key: string]: string }>({});
+  const [widget, setWidget] = useState<HTMLElement>();
 
   useEffect(() => {
     fetch('/opening-hours.json')
       .then(response => response.json())
       .then(data => setWorkingHours(data))
       .catch(error => console.error('Error fetching working hours:', error));
+  }, []);
+
+  useEffect(() => {
+    const hero = document.getElementById("hero");
+
+    if (hero && widget) {
+      hero.appendChild(widget);
+    }
+  }, [widget]);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.opentable.co.uk/widget/reservation/loader?rid=394356&type=button&theme=standard&color=1&dark=false&iframe=false&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website&cfe=true"
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      const widgetElement = document.getElementById("ot-reservation-widget");
+
+      if (widgetElement) {
+        setWidget(widgetElement);
+      }
+    };
   }, []);
 
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
@@ -44,18 +69,20 @@ const HomePage = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-cover bg-center h-96 flex flex-col justify-center items-center text-white bg-gray-800 rounded-lg shadow-lg" style={{ backgroundImage: "url('/restaurant-hero.jpg')" }}>
+      <div id="hero" className="bg-cover bg-center h-96 flex flex-col justify-center items-center text-white bg-gray-800 rounded-lg shadow-lg" style={{ backgroundImage: "url('/restaurant-hero.jpg')" }}>
         <h1 className="text-5xl font-bold mb-2">Taste the flavours of Turkey</h1>
         <p className="text-lg">Savour authentic Turkish dishes in a warm setting.</p>
-        <Link href="/menu">
+        <Link id="view-menu" href="/menu">
           <button className="mt-4 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md">View Menu</button>
         </Link>
+
+        <Script
+        />
       </div>
-      
+
       {/* Navigation */}
       <div className="flex justify-center space-x-6 my-6">
         <Link href="/menu" className="text-lg font-semibold text-blue-600 hover:underline">Menu</Link>
-        <Link href="#contact" className="text-lg font-semibold text-blue-600 hover:underline">Book Now</Link>
         <a href="#contact" className="text-lg font-semibold text-blue-600 hover:underline">Contact</a>
       </div>
 
