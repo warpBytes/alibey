@@ -55,6 +55,12 @@
                 "price": 6.90
             },
             {
+                "name": "Halloumi Cheese",
+                "description": "Served with olives, pickles & homemade Turkish bread",
+                "price": 7.20,
+                "dietary": "Vegetarian"
+            },
+            {
                 "name": "Falafel",
                 "description": "Crushed chickpeas, broad beans, onions, carrots toasted in spices, deep fried served with celery and spinach",
                 "price": 7.20,
