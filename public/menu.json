@@ -45,7 +45,10 @@
             {
                 "name": "Mixed cold meze",
                 "description": "Hummus, cacik, saksuka, tabule & crush olives",
-                "price": 19.50
+                "prices": {
+                    "Small": 19.50,
+                    "Large": 27
+                }
             }
         ],
         "Hot Starter": [
@@ -128,7 +131,10 @@
             {
                 "name": "Mixed hot meze",
                 "description": "Halloumi cheese, falafel, sigara borek, crispy chicken, Turkish sausage, calamari",
-                "price": 21.50
+                "prices": {
+                    "Small": 21.50,
+                    "Large": 29.50
+                }
             }
         ],
         "Grill Main Course": [
