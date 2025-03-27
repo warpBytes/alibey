@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "clsx": "^2.1.1",
+    "husky": "^9.1.7",
     "next": "15.2.4",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.0.0",
