@@ -8,12 +8,6 @@
     --foreground: #141414;
     --red700: #751127;
   }
-
-  .dark {
-    --background: #141414;
-    --foreground: #f8f8f8;
-    --red700: #751127;
-  }
 }
 
 body {
