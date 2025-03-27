@@ -19,10 +19,10 @@ const Navigation = () => {
 
       <div className="flex space-x-8">
         {navigationLinks.map((link) => (
-          <Link key={link.href} href={link.href}>
+          <Link key={link.href} href={link.href} target={link.target}>
             <span
               className={cn(
-                "text-foreground",
+                "text-foreground hover:underline",
                 isActive(link.href) && "underline"
               )}
             >

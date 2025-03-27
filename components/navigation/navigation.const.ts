@@ -13,6 +13,7 @@ export const navigationLinks = [
   },
   {
     label: "Book now",
-    href: "https://www.opentable.co.uk/restref/client/?rid=394356&restref=394356&lang=en-GB&color[…]urant%20website&corrid=fea5f2cf-b26b-46e1-bd3c-728d7ce8f2ac",
+    href: "https://www.opentable.co.uk/booking/restref/availability?rid=394356&lang=en-GB&color=1&r3uid=cfe&dark=false&correlationId=31690a3e-6c41-4a95-8492-e97c72835e55&restRef=394356&otSource=Restaurant%20website",
+    target: "_blank",
   },
 ];
