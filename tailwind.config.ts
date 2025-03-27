@@ -10,6 +10,12 @@ const config: Config = {
       fontFamily: {
         gambarino: ['var(--font-gambarino)'],
       },
+      fontSize: {
+        'heading-xl': [
+          'var(--heading-xl-size)',
+          { lineHeight: 'var(--heading-xl-height)' },
+        ],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
