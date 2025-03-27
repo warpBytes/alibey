@@ -24,7 +24,7 @@ const NewsAndUpdates = () => {
             </div>
             <span className="text-2xl">{item.title}</span>
             <div className="h-[1px] w-full bg-foreground" />
-            <span className="text-neutral600 text-xl">{item.description}</span>
+            <span className="text-xl text-neutral600">{item.description}</span>
           </div>
         ))}
       </div>

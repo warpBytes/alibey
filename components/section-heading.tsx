@@ -4,7 +4,7 @@ interface IProps {
 
 const SectionHeading = ({ title }: IProps) => {
   return (
-    <h1 className="font-gambarino lg:text-heading-xl text-center text-5xl md:text-6xl">
+    <h1 className="text-center font-gambarino text-5xl md:text-6xl lg:text-heading-xl">
       {title}
     </h1>
   );
