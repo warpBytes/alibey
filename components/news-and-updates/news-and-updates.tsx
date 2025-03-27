@@ -1,8 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
-import { BOOK_NOW_LINK } from '@/constants';
-
+import BookNow from '../book-now';
 import SectionHeading from '../section-heading';
 import { newsAndUpdates } from './news-and-updates.const';
 
@@ -28,13 +26,7 @@ const NewsAndUpdates = () => {
           </div>
         ))}
       </div>
-      <Link
-        href={BOOK_NOW_LINK}
-        target="_blank"
-        className="mx-auto h-[30px] border-b border-foreground text-xl font-medium"
-      >
-        Book now
-      </Link>
+      <BookNow className="mx-auto" />
     </div>
   );
 };
