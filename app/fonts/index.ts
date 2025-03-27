@@ -6,4 +6,10 @@ const switzer = localFont({
   weight: '100 900',
 });
 
-export { switzer };
+const gambarino = localFont({
+  src: './Gambarino.otf',
+  variable: '--font-gambarino',
+  weight: '100 900',
+});
+
+export { gambarino, switzer };
