@@ -15,6 +15,10 @@ const config: Config = {
           'var(--heading-xl-size)',
           { lineHeight: 'var(--heading-xl-height)' },
         ],
+        'heading-sm': [
+          'var(--heading-sm-size)',
+          { lineHeight: 'var(--heading-sm-height)' },
+        ],
       },
       colors: {
         background: 'var(--background)',
