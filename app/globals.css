@@ -8,6 +8,9 @@
     --foreground: #141414;
     --red700: #751127;
     --neutral600: #6f6f6f;
+
+    --heading-xl-size: 80px;
+    --heading-xl-height: 80px;
   }
 }
 
