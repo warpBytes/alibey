@@ -1,6 +1,7 @@
-import Navigation from "@/components/navigation";
-import "./globals.css";
-import { switzer } from "./fonts";
+import Navigation from '@/components/navigation';
+
+import { switzer } from './fonts';
+import './globals.css';
 
 export default function RootLayout({
   children,

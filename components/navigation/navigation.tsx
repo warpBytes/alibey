@@ -1,9 +1,11 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { navigationLinks } from "./navigation.const";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
+
+import { navigationLinks } from './navigation.const';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -11,7 +13,7 @@ const Navigation = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="border-b border-foreground mx-4 sm:mx-10 flex justify-between items-center h-16">
+    <nav className="mx-4 flex h-16 items-center justify-between border-b border-foreground sm:mx-10">
       <Link href="/" className="text-2xl">
         <span className="text-foreground">ALI </span>
         <span className="text-red700">BEY</span>
@@ -22,8 +24,8 @@ const Navigation = () => {
           <Link key={link.href} href={link.href} target={link.target}>
             <span
               className={cn(
-                "text-foreground hover:underline",
-                isActive(link.href) && "underline"
+                'text-foreground hover:underline',
+                isActive(link.href) && 'underline',
               )}
             >
               {link.label}
