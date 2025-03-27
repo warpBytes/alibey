@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <nav className="mx-4 flex h-16 items-center justify-between border-b border-foreground sm:mx-10">
       <Link href="/" className="text-2xl">
-        <span className="text-foreground">ALI </span>
+        <span>ALI </span>
         <span className="text-red700">BEY</span>
       </Link>
 
@@ -24,7 +24,7 @@ const Navigation = () => {
           <Link key={link.href} href={link.href} target={link.target}>
             <span
               className={cn(
-                'text-foreground hover:underline',
+                'hover:underline',
                 isActive(link.href) && 'underline',
               )}
             >

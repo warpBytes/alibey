@@ -1,7 +1,13 @@
 import Hero from '@/components/hero';
+import TasteTheFlavors from '@/components/taste-the-flavors';
 
 const Home = () => {
-  return <Hero />;
+  return (
+    <div>
+      <Hero />
+      <TasteTheFlavors />
+    </div>
+  );
 };
 
 export default Home;

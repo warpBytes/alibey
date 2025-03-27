@@ -7,10 +7,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        gambarino: ['var(--font-gambarino)'],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         red700: 'var(--red700)',
+        neutral600: 'var(--neutral600)',
       },
     },
   },

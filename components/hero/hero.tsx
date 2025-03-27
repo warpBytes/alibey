@@ -4,25 +4,9 @@ import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 
-const Hero = () => {
-  const heroImages = [
-    {
-      src: '/images/hero-image-1.png',
-      alt: 'Turkish dessert with pistachios',
-      className: 'rotate-[5deg]',
-    },
-    {
-      src: '/images/hero-image-2.png',
-      alt: 'Restaurant interior',
-      className: 'rotate-[-2deg]',
-    },
-    {
-      src: '/images/hero-image-3.png',
-      alt: 'Main course dish',
-      className: 'rotate-[3deg]',
-    },
-  ];
+import { heroImages } from './hero.const';
 
+const Hero = () => {
   return (
     <div className="relative flex h-[434px] w-full items-center justify-center bg-background">
       <div
