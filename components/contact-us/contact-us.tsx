@@ -29,7 +29,7 @@ const ContactUs = () => {
           />
           <div className="flex w-full flex-col justify-between gap-6">
             <div className="flex flex-col gap-4">
-              <h2 className="text-heading-lg font-gambarino text-white">
+              <h2 className="font-gambarino text-heading-lg text-white">
                 Contact us
               </h2>
               <p className="text-xl text-white/60">
