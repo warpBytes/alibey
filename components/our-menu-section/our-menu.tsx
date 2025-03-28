@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { MENU_ROUTE } from '@/constants';
+
 import { formatPrice } from '@/lib/price';
 import { cn } from '@/lib/utils';
 
@@ -56,7 +58,7 @@ const OurMenu = () => {
       </div>
 
       <Link
-        href="/menu"
+        href={MENU_ROUTE}
         className="mx-auto h-[30px] w-fit border-b border-foreground text-xl font-medium"
       >
         Check menu
