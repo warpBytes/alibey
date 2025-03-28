@@ -1,13 +1,11 @@
 import Link from 'next/link';
 
-import { FoodType } from '@/constants';
-
 import { formatPrice } from '@/lib/price';
 import { cn } from '@/lib/utils';
 
 import DietaryLabel from '../dietary-label';
 import SectionHeading from '../section-heading';
-import { menuItems } from './our-menu.const';
+import { menuPreviewItems } from './our-menu.const';
 
 const OurMenu = () => {
   return (
@@ -16,15 +14,15 @@ const OurMenu = () => {
 
       <div className="relative grid grid-cols-1 md:grid-cols-2">
         <div className="absolute left-1/2 top-0 hidden h-full w-[1px] -translate-x-1/2 bg-foreground md:block" />
-        <div className="absolute left-0 top-1/2 hidden h-[1px] w-full -translate-y-1/2 bg-foreground md:block" />
 
-        {menuItems.map((item, index) => (
+        {menuPreviewItems.map((item, index) => (
           <div
             key={item.title}
             className={cn(
               'space-y-6 p-4 sm:p-[56px]',
-              index !== menuItems.length - 1 &&
+              index !== menuPreviewItems.length - 1 &&
                 'border-b border-foreground md:border-b-0',
+              item.className,
             )}
           >
             <h2 className="font-gambarino text-heading-md">{item.title}</h2>
@@ -37,9 +35,7 @@ const OurMenu = () => {
                   <div>
                     <h3 className="flex items-center gap-2 font-medium">
                       {item.name}
-                      {item.dietary && (
-                        <DietaryLabel type={item.dietary as FoodType} />
-                      )}
+                      {item.dietary && <DietaryLabel type={item.dietary} />}
                     </h3>
                     <p className="mt-1 text-sm text-neutral600">
                       {item.description}
