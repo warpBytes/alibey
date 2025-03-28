@@ -54,7 +54,7 @@ const MobileNavigation = ({ toggle, setToggle }: IProps) => {
                 'p-4 text-xl transition-colors',
                 isActive(link.href) && 'underline',
                 index === navigationLinks.length - 1 &&
-                  'bg-pampas flex items-center justify-between',
+                  'flex items-center justify-between bg-pampas',
               )}
               onClick={() => setToggle(false)}
             >

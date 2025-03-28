@@ -18,7 +18,7 @@ const Navigation = () => {
 
   return (
     <nav className="relative mx-4 flex h-16 items-center justify-between border-b border-foreground md:mx-10">
-      <Link href="/" className="shrink-0 text-2xl">
+      <Link href="/" className="shrink-0 text-xl md:text-2xl">
         <span className="text-foreground">ALI </span>
         <span className="text-red700">BEY</span>
       </Link>
