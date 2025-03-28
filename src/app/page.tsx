@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import { FaChevronDown, FaChevronUp, FaInstagram, FaTripadvisor } from 'react-icons/fa';
-import { SiJusteat } from 'react-icons/si';
+import { SiJusteat, SiUbereats } from 'react-icons/si';
 import { useEffect, useState } from 'react';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
@@ -60,6 +60,9 @@ const HomePage = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Ali Bey</h1>
         <div className="flex space-x-2">
+          <Link href="https://www.ubereats.com/gb/store/ali-bey-restaurant/a8iEMDl6Q-OC3UCQFb_U8w" target="_blank" rel="noopener noreferrer">
+            <SiUbereats className="text-green-600 text-3xl hover:text-green-800" />
+          </Link>
           <Link href="https://www.just-eat.co.uk/restaurants-ali-bey-sutton/menu" target="_blank" rel="noopener noreferrer">
             <SiJusteat className="text-orange-400 text-3xl hover:text-orange-600" />
           </Link>
