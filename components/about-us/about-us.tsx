@@ -7,29 +7,29 @@ const AboutUs = () => {
   return (
     <div className="flex flex-col gap-[120px]">
       <div
-        className="h-[100px] w-full"
+        className="hidden h-[100px] w-full md:block"
         style={{
           backgroundImage: 'url("/images/union.png")',
           backgroundRepeat: 'repeat',
         }}
       />
-      <div className="content-wrapper">
-        <div className="flex w-full flex-wrap-reverse justify-between gap-4">
-          <div className="flex max-w-[587px] flex-col gap-6">
-            <p className="text-2xl">
+      <div className="content-wrapper mt-20 md:mt-0">
+        <div className="flex w-full flex-wrap-reverse justify-between gap-10 md:gap-4">
+          <div className="flex max-w-[587px] flex-col gap-10 md:gap-6">
+            <p className="text-center text-xl md:text-left md:text-2xl">
               Our restaurant offers an authentic Turkish Mediterranean dining
               experience, blending traditional flavours with modern culinary
               techniques. Join us for an unforgettable meal!
             </p>
-            <BookNow />
+            <BookNow className="mx-auto md:mx-0" />
           </div>
-          <SectionHeading title="About us" />
+          <SectionHeading title="About us" className="mx-auto md:mx-0" />
         </div>
-        <div className="mt-[240px] flex flex-wrap-reverse justify-between gap-4">
-          <div className="flex flex-col justify-between gap-4">
+        <div className="mt-[120px] flex flex-wrap justify-between gap-[120px] md:mt-[240px] md:gap-4">
+          <div className="mx-auto flex flex-col items-center justify-between gap-8 md:mx-0 md:items-start md:gap-4">
             <span className="text-neutral600">Working hours</span>
-            <div className="flex flex-col gap-8">
-              <span className="text-heading-sm uppercase">
+            <div className="flex flex-col items-center gap-6 text-center md:items-start md:gap-8 md:text-left">
+              <span className="text-2xl uppercase md:text-heading-sm">
                 Monday to Sunday
               </span>
               <div className="flex flex-col gap-2">
@@ -41,7 +41,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="relative h-[480px] w-full md:w-[587px]">
+          <div className="relative h-[361px] w-full md:h-[480px] md:w-[587px]">
             <Image
               src="/images/bar.png"
               alt="Bar"
@@ -53,7 +53,7 @@ const AboutUs = () => {
       </div>
 
       <div
-        className="h-[100px] w-full"
+        className="hidden h-[100px] w-full md:block"
         style={{
           backgroundImage: 'url("/images/union.png")',
           backgroundRepeat: 'repeat',

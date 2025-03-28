@@ -11,7 +11,7 @@ import { menuPreviewItems } from './our-menu.const';
 
 const OurMenu = () => {
   return (
-    <div className="content-wrapper mt-[120px] flex flex-col gap-12 md:gap-16">
+    <div className="content-wrapper mt-[160px] flex flex-col gap-12 md:mt-[120px] md:gap-16">
       <SectionHeading title="Our menu" />
 
       <div className="relative grid grid-cols-1 md:grid-cols-2">

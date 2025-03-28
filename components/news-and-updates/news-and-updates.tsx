@@ -6,7 +6,7 @@ import { newsAndUpdates } from './news-and-updates.const';
 
 const NewsAndUpdates = () => {
   return (
-    <div className="content-wrapper mx-auto mb-[120px] flex flex-col gap-10 md:gap-16">
+    <div className="content-wrapper mx-auto mb-[100px] flex flex-col gap-10 md:mb-[120px] md:gap-16">
       <SectionHeading title="News and Updates" />
       <div className="grid gap-10 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
         {newsAndUpdates.map((item) => (
