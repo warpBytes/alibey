@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { formatPrice } from '@/lib/price';
@@ -19,11 +20,16 @@ const OurMenu = () => {
           <div
             key={item.title}
             className={cn(
-              'space-y-6 border-b border-foreground py-8 md:border-b-0 md:p-[56px]',
+              'relative space-y-6 overflow-hidden border-b border-foreground py-8 md:border-b-0 md:p-[56px]',
               item.className,
             )}
           >
-            <h2 className="font-gambarino text-heading-sm md:text-heading-md">
+            {item.bgImage && (
+              <div className="absolute right-0 top-20 hidden h-[300px] w-[300px] md:block">
+                <Image src={item.bgImage} alt="" fill priority={false} />
+              </div>
+            )}
+            <h2 className="relative font-gambarino text-heading-sm md:text-heading-md">
               {item.title}
             </h2>
             {item.items.map((item, index) => (
