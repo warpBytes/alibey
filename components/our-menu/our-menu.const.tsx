@@ -1,19 +1,18 @@
-import { StaticImageData } from 'next/image';
-
 import menu from '@/assets/menu.json';
 import { FoodType } from '@/constants';
 
-import { Cocktails, Drinks, Food, Wines } from '@/lib/images';
+import { CocktailIcon, DrinksIcon, WineIcon } from '@/lib/svgs';
+import { FoodIcon } from '@/lib/svgs';
 
 interface IMenuPreviewItem {
   title: string;
-  bgImage: StaticImageData;
   items: {
     name: string;
     price: number;
     description?: string;
     dietary?: FoodType;
   }[];
+  icon: React.ReactNode;
   className?: string;
 }
 
@@ -31,23 +30,31 @@ export const menuPreviewItems = [
   {
     title: 'Food',
     items: previewFoodItems,
-    bgImage: Food,
+    icon: (
+      <FoodIcon className="h-[35px] w-[35px] md:h-[218px] md:w-[218px] md:opacity-[3%]" />
+    ),
   },
   {
     title: 'Cocktails',
     items: previewCocktailsItems,
-    bgImage: Cocktails,
+    icon: (
+      <CocktailIcon className="h-[35px] w-[35px] md:h-[256px] md:w-[246px] md:opacity-[3%]" />
+    ),
   },
   {
     title: 'Drinks',
     items: previewDrinksItems,
-    bgImage: Drinks,
     className: 'md:border-t border-foreground',
+    icon: (
+      <DrinksIcon className="h-[35px] w-[35px] md:h-[234px] md:w-[188px] md:opacity-[3%]" />
+    ),
   },
   {
     title: 'Wines',
     items: previewRedWines,
-    bgImage: Wines,
     className: 'md:border-t border-foreground',
+    icon: (
+      <WineIcon className="h-[35px] w-[35px] md:h-[241px] md:w-[106px] md:opacity-[3%]" />
+    ),
   },
 ] as IMenuPreviewItem[];

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { formatPrice } from '@/lib/price';
@@ -24,14 +23,15 @@ const OurMenu = () => {
               item.className,
             )}
           >
-            {item.bgImage && (
-              <div className="absolute right-0 top-20 hidden h-[300px] w-[300px] md:block">
-                <Image src={item.bgImage} alt="" fill priority={false} />
+            <div className="flex items-center gap-4">
+              <div className="relative block text-foreground md:absolute md:right-20 md:top-24">
+                {item.icon}
               </div>
-            )}
-            <h2 className="relative font-gambarino text-heading-sm md:text-heading-md">
-              {item.title}
-            </h2>
+
+              <h2 className="relative font-gambarino text-heading-sm md:text-heading-md">
+                {item.title}
+              </h2>
+            </div>
             {item.items.map((item, index) => (
               <div
                 key={index}
