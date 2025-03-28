@@ -11,7 +11,7 @@ export const navigationLinks = [
   },
   {
     label: 'Contact',
-    href: '/contact',
+    href: '/#contact',
   },
   {
     label: 'Book now',

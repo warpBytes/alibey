@@ -11,6 +11,10 @@ const config: Config = {
         gambarino: ['var(--font-gambarino)'],
       },
       fontSize: {
+        'heading-2xl': [
+          'var(--heading-2xl-size)',
+          { lineHeight: 'var(--heading-2xl-height)' },
+        ],
         'heading-xl': [
           'var(--heading-xl-size)',
           { lineHeight: 'var(--heading-xl-height)' },

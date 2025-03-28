@@ -16,6 +16,24 @@ const Navigation = () => {
 
   const isActive = (path: string) => pathname === path;
 
+  const handleContactClick = async (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.includes('#contact')) {
+      e.preventDefault();
+
+      if (pathname !== '/') {
+        window.location.href = '/#contact';
+        return;
+      }
+
+      document
+        .querySelector('#contact')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="relative mx-4 flex h-16 items-center justify-between border-b border-foreground md:mx-10">
       <Link href="/" className="shrink-0 text-xl md:text-2xl">
@@ -25,7 +43,12 @@ const Navigation = () => {
 
       <div className="hidden space-x-8 md:flex">
         {navigationLinks.map((link) => (
-          <Link key={link.href} href={link.href} target={link.target}>
+          <Link
+            key={link.href}
+            href={link.href}
+            target={link.target}
+            onClick={(e) => handleContactClick(e, link.href)}
+          >
             <span
               className={cn(
                 'text-foreground hover:underline',

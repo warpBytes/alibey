@@ -1,5 +1,6 @@
 import metadataConfig from '@/lib/metadata';
 
+import CookieBanner from '@/components/cookie-banner';
 import Navigation from '@/components/navigation';
 
 import { gambarino, switzer } from './fonts';
@@ -19,6 +20,7 @@ export default function RootLayout({
       >
         <Navigation />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
