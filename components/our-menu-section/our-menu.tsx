@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { MENU_ROUTE } from '@/constants';
+
 import { formatPrice } from '@/lib/price';
 import { cn } from '@/lib/utils';
 
@@ -32,31 +34,36 @@ const OurMenu = () => {
                 {item.title}
               </h2>
             </div>
-            {item.items.map((item, index) => (
-              <div
-                key={index}
-                className="border-foreground/5 border-b pb-4 last:border-b-0"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <h3 className="flex flex-wrap items-center gap-2 font-medium">
-                      {item.name}
-                      {item.dietary && <DietaryLabel type={item.dietary} />}
-                    </h3>
-                    <p className="mt-1 text-sm text-neutral600">
-                      {item.description}
-                    </p>
+            <div>
+              {item.items.map((item, index) => (
+                <div
+                  key={index}
+                  className={cn(
+                    'border-foreground/5 border-b py-4 last:border-b-0',
+                    index === 0 && 'pt-0',
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="flex flex-wrap items-center gap-2 font-medium">
+                        {item.name}
+                        {item.dietary && <DietaryLabel type={item.dietary} />}
+                      </h3>
+                      <p className="mt-1 text-sm text-neutral600">
+                        {item.description}
+                      </p>
+                    </div>
+                    <span>{formatPrice(item.price)}</span>
                   </div>
-                  <span>{formatPrice(item.price)}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         ))}
       </div>
 
       <Link
-        href="/menu"
+        href={MENU_ROUTE}
         className="mx-auto h-[30px] w-fit border-b border-foreground text-xl font-medium"
       >
         Check menu

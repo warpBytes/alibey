@@ -1,4 +1,4 @@
-import { BOOK_NOW_LINK } from '@/constants';
+import { BOOK_NOW_LINK, MENU_ROUTE } from '@/constants';
 
 export const navigationLinks = [
   {
@@ -7,7 +7,7 @@ export const navigationLinks = [
   },
   {
     label: 'Menu',
-    href: '/menu',
+    href: MENU_ROUTE,
   },
   {
     label: 'Contact',
