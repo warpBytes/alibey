@@ -11,8 +11,10 @@
     --neutral600: #6f6f6f;
     --pampas: #ece8e1;
 
-    --heading-xl-size: 80px;
-    --heading-xl-height: 80px;
+    --heading-2xl-size: 80px;
+    --heading-2xl-height: 80px;
+    --heading-xl-size: 64px;
+    --heading-xl-height: 64px;
     --heading-lg-size: 56px;
     --heading-lg-height: 56px;
     --heading-md-size: 40px;
