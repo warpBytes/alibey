@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -12,13 +12,33 @@ import MenuItems from './menu-items';
 
 const Menu = () => {
   const [activeFilter, setActiveFilter] = useState(menuFilters[0].label);
+  const [isSticky, setIsSticky] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (filterRef.current) {
+        const { top } = filterRef.current.getBoundingClientRect();
+        setIsSticky(top <= 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="mb-20 w-full">
       <MenuHeader />
       <div className="content-wrapper flex flex-col gap-16 md:gap-20">
         <SectionHeading title="Menu" />
-        <div className="flex items-center justify-between sm:justify-center sm:gap-10">
+        <div
+          ref={filterRef}
+          className={cn(
+            'transition-border sticky top-0 z-10 flex items-center justify-between border-b bg-background py-4 duration-300 sm:justify-center sm:gap-10',
+            isSticky ? 'border-foreground' : 'border-transparent',
+          )}
+        >
           {menuFilters.map(({ label }) => (
             <button key={label} onClick={() => setActiveFilter(label)}>
               <span
