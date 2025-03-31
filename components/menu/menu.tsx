@@ -14,6 +14,7 @@ const Menu = () => {
   const [activeFilter, setActiveFilter] = useState(menuFilters[0].label);
   const [isSticky, setIsSticky] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,27 @@ const Menu = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleFilterClick = (label: string) => {
+    setActiveFilter(label);
+
+    setTimeout(() => {
+      if (menuRef.current) {
+        const headings = menuRef.current.getElementsByTagName('h2');
+        const firstHeading = Array.from(headings)[0];
+
+        if (firstHeading) {
+          const offset = isSticky ? 64 : 0;
+          const topOffset = firstHeading.offsetTop - offset;
+
+          window.scrollTo({
+            top: topOffset,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }, 0);
+  };
 
   return (
     <div className="mb-20 w-full">
@@ -40,7 +62,7 @@ const Menu = () => {
           )}
         >
           {menuFilters.map(({ label }) => (
-            <button key={label} onClick={() => setActiveFilter(label)}>
+            <button key={label} onClick={() => handleFilterClick(label)}>
               <span
                 className={cn(
                   '!text-xl font-medium transition-colors duration-200',
@@ -58,7 +80,7 @@ const Menu = () => {
             </button>
           ))}
         </div>
-        <MenuItems activeFilter={activeFilter} />
+        <MenuItems ref={menuRef} activeFilter={activeFilter} />
       </div>
       <div className="mt-16 flex items-center justify-center">
         <BookNow />
