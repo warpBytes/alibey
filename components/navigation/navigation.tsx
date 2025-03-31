@@ -2,35 +2,39 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { BOOK_NOW_LINK } from '@/constants';
 
 import { cn } from '@/lib/utils';
 
 import MobileNavigation from './mobile-navigation';
-import { navigationLinks } from './navigation.const';
+import { CONTACT_HREF, navigationLinks } from './navigation.const';
 
 const Navigation = () => {
   const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState('');
 
   const [toggle, setToggle] = useState(false);
 
-  const isActive = (path: string) => pathname === path;
+  useEffect(() => {
+    setActiveLink(window.location.hash || pathname);
+  }, [pathname]);
 
-  const handleContactClick = async (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    if (href.includes('#contact')) {
-      e.preventDefault();
+  const handleContactClick = () => {
+    if (pathname !== '/') {
+      window.location.href = `/${CONTACT_HREF}`;
+      return;
+    }
 
-      if (pathname !== '/') {
-        window.location.href = '/#contact';
-        return;
-      }
+    setActiveLink(CONTACT_HREF);
+  };
 
-      document
-        .querySelector('#contact')
-        ?.scrollIntoView({ behavior: 'smooth' });
+  const handleLinkClick = (href: string) => {
+    if (href.includes(CONTACT_HREF)) handleContactClick();
+    if (href !== BOOK_NOW_LINK) {
+      setActiveLink(href);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -48,12 +52,12 @@ const Navigation = () => {
               key={link.href}
               href={link.href}
               target={link.target}
-              onClick={(e) => handleContactClick(e, link.href)}
+              onClick={() => handleLinkClick(link.href)}
             >
               <span
                 className={cn(
                   'text-foreground hover:underline',
-                  isActive(link.href) && 'underline',
+                  activeLink === link.href && 'underline',
                 )}
               >
                 {link.label}
@@ -62,7 +66,12 @@ const Navigation = () => {
           ))}
         </div>
 
-        <MobileNavigation toggle={toggle} setToggle={setToggle} />
+        <MobileNavigation
+          toggle={toggle}
+          setToggle={setToggle}
+          activeLink={activeLink}
+          setActiveLink={setActiveLink}
+        />
       </div>
     </nav>
   );

@@ -1,5 +1,7 @@
 import { BOOK_NOW_LINK, MENU_ROUTE } from '@/constants';
 
+export const CONTACT_HREF = '#contact';
+
 export const navigationLinks = [
   {
     label: 'Home',
@@ -11,7 +13,7 @@ export const navigationLinks = [
   },
   {
     label: 'Contact',
-    href: '/#contact',
+    href: CONTACT_HREF,
   },
   {
     label: 'Book now',

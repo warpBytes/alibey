@@ -1,5 +1,6 @@
+'use client';
+
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 
 import { ArrowRightIcon } from '@/lib/svgs';
@@ -10,12 +11,22 @@ import { navigationLinks } from './navigation.const';
 interface IProps {
   toggle: boolean;
   setToggle: Dispatch<SetStateAction<boolean>>;
+  activeLink: string;
+  setActiveLink: Dispatch<SetStateAction<string>>;
 }
 
-const MobileNavigation = ({ toggle, setToggle }: IProps) => {
-  const pathname = usePathname();
+const MobileNavigation = ({
+  toggle,
+  setToggle,
+  activeLink,
+  setActiveLink,
+}: IProps) => {
+  const handleLinkClick = (href: string) => {
+    setActiveLink(href);
+    window.scrollTo(0, 0);
+    setToggle(false);
+  };
 
-  const isActive = (path: string) => pathname === path;
   return (
     <div className="flex w-full items-center justify-end md:hidden">
       <button
@@ -52,11 +63,11 @@ const MobileNavigation = ({ toggle, setToggle }: IProps) => {
               target={link.target}
               className={cn(
                 'p-4 text-xl transition-colors',
-                isActive(link.href) && 'underline',
+                activeLink === link.href && 'underline',
                 index === navigationLinks.length - 1 &&
                   'flex items-center justify-between bg-pampas',
               )}
-              onClick={() => setToggle(false)}
+              onClick={() => handleLinkClick(link.href)}
             >
               {link.label}
               {index === navigationLinks.length - 1 && (
