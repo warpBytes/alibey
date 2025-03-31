@@ -35,7 +35,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="relative mx-4 flex h-[58px] items-center justify-between border-b border-foreground md:mx-10 md:h-16">
+    <nav className="relative sticky top-0 z-20 mx-4 flex h-[58px] items-center justify-between border-b border-foreground bg-background md:mx-10 md:h-16">
       <Link href="/" className="shrink-0 text-xl md:text-2xl">
         <span className="text-foreground">ALI </span>
         <span className="text-red700">BEY</span>

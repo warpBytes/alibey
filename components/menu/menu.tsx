@@ -30,13 +30,13 @@ const Menu = () => {
   return (
     <div className="mb-20 w-full">
       <MenuHeader />
-      <div className="content-wrapper flex flex-col gap-16 md:gap-20">
+      <div className="content-wrapper z-20 flex flex-col gap-12 md:gap-16">
         <SectionHeading title="Menu" className="z-10 md:mt-[-38px]" />
         <div
           ref={filterRef}
           className={cn(
-            'sticky top-0 z-10 flex items-center justify-between border-b bg-background transition-all duration-300 sm:justify-center sm:gap-10',
-            isSticky ? 'border-foreground py-4' : 'border-transparent',
+            'sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background transition-all duration-300 sm:justify-center sm:gap-10',
+            isSticky ? 'border-foreground' : 'border-transparent',
           )}
         >
           {menuFilters.map(({ label }) => (
