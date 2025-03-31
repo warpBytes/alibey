@@ -1,11 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import { CookieName } from '@/constants';
+import Cookies from 'js-cookie';
 
 const CookieBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const isDismissed = !!Cookies.get(CookieName.CookieBannerDismissed);
+    if (!isDismissed) setIsVisible(true);
+  }, []);
 
   const handleDismiss = () => {
+    Cookies.set(CookieName.CookieBannerDismissed, 'true', {
+      expires: 365,
+      path: '/',
+    });
     setIsVisible(false);
   };
 
