@@ -7,7 +7,7 @@ import TasteTheFlavors from '@/components/taste-the-flavors';
 
 const Home = () => {
   return (
-    <div>
+    <div className="pb-4 md:pb-10">
       <Hero />
       <TasteTheFlavors />
       <NewsAndUpdates />

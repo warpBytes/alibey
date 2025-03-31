@@ -15,7 +15,7 @@ const AboutUs = () => {
       />
       <div className="content-wrapper mt-20 md:mt-0">
         <div className="flex w-full flex-wrap-reverse justify-between gap-10 md:gap-4">
-          <div className="flex max-w-[587px] flex-col gap-10 md:gap-6">
+          <div className="flex max-w-[587px] flex-col gap-6">
             <p className="text-center text-xl md:text-left md:text-2xl">
               Our restaurant offers an authentic Turkish Mediterranean dining
               experience, blending traditional flavours with modern culinary
