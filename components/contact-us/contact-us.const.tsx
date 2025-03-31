@@ -14,6 +14,10 @@ export const contactLinks = [
     href: 'https://www.just-eat.co.uk/restaurants-ali-bey-sutton/menu',
   },
   {
+    label: 'UberEats',
+    href: 'https://www.ubereats.com/gb/store/ali-bey-restaurant/a8iEMDl6Q-OC3UCQFb_U8w',
+  },
+  {
     label: 'Book now',
     href: BOOK_NOW_LINK,
   },

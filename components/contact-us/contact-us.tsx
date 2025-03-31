@@ -71,10 +71,10 @@ const ContactUs = () => {
               <div className="flex w-full items-center justify-between border-b border-white/10 py-4 text-white">
                 <PhoneIcon />
                 <a
-                  href="tel:02179534291"
+                  href="tel:+442079534291"
                   className="text-lg text-white/60 md:text-xl"
                 >
-                  021 7953 4291
+                  020 7953 4291
                 </a>
               </div>
               <div className="flex w-full items-center justify-between border-b border-white/10 py-4 text-white">
