@@ -35,25 +35,26 @@ const OurMenu = () => {
               </h2>
             </div>
             <div>
-              {item.items.map((item, index) => (
+              {item.items.map((data, index) => (
                 <div
                   key={index}
                   className={cn(
                     'border-foreground/5 border-b py-4 last:border-b-0',
                     index === 0 && 'pt-0',
+                    index === item.items.length - 1 && 'pb-0',
                   )}
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <h3 className="flex flex-wrap items-center gap-2 font-medium">
-                        {item.name}
-                        {item.dietary && <DietaryLabel type={item.dietary} />}
+                        {data.name}
+                        {data.dietary && <DietaryLabel type={data.dietary} />}
                       </h3>
                       <p className="mt-1 text-sm text-neutral600">
-                        {item.description}
+                        {data.description}
                       </p>
                     </div>
-                    <span>{formatPrice(item.price)}</span>
+                    <span>{formatPrice(data.price)}</span>
                   </div>
                 </div>
               ))}

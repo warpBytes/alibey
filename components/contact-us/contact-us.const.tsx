@@ -1,7 +1,5 @@
 import { BOOK_NOW_LINK } from '@/constants';
 
-import { LetterIcon, LocationIcon, PhoneIcon } from '@/lib/svgs';
-
 export const contactLinks = [
   {
     label: 'Instagram',
@@ -18,20 +16,5 @@ export const contactLinks = [
   {
     label: 'Book now',
     href: BOOK_NOW_LINK,
-  },
-];
-
-export const contactInfo = [
-  {
-    label: '12 High Street, SM1 1HN Sutton',
-    icon: <LocationIcon />,
-  },
-  {
-    label: '021 7953 4291',
-    icon: <PhoneIcon />,
-  },
-  {
-    label: 'info@alibey.co.uk',
-    icon: <LetterIcon />,
   },
 ];

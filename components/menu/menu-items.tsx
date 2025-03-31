@@ -20,7 +20,7 @@ const MenuItems = ({ activeFilter }: { activeFilter: string }) => {
       <div className="flex flex-col gap-16 md:gap-20">
         {menuItems.map((item) => (
           <div key={item.id} className="flex flex-col gap-10">
-            <h2 className="text-center font-gambarino text-heading-md">
+            <h2 className="text-center font-gambarino text-heading-sm md:text-heading-md">
               {item.id}
             </h2>
             <div>
@@ -30,6 +30,7 @@ const MenuItems = ({ activeFilter }: { activeFilter: string }) => {
                   className={cn(
                     'border-foreground/5 border-b py-4 last:border-b-0',
                     index === 0 && 'pt-0',
+                    index === item.items.length - 1 && 'pb-0',
                   )}
                 >
                   <div className="flex items-start justify-between gap-6">
