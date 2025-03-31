@@ -31,12 +31,12 @@ const Menu = () => {
     <div className="mb-20 w-full">
       <MenuHeader />
       <div className="content-wrapper flex flex-col gap-16 md:gap-20">
-        <SectionHeading title="Menu" />
+        <SectionHeading title="Menu" className="z-10 md:mt-[-38px]" />
         <div
           ref={filterRef}
           className={cn(
-            'transition-border sticky top-0 z-10 flex items-center justify-between border-b bg-background py-4 duration-300 sm:justify-center sm:gap-10',
-            isSticky ? 'border-foreground' : 'border-transparent',
+            'sticky top-0 z-10 flex items-center justify-between border-b bg-background transition-all duration-300 sm:justify-center sm:gap-10',
+            isSticky ? 'border-foreground py-4' : 'border-transparent',
           )}
         >
           {menuFilters.map(({ label }) => (

@@ -7,7 +7,7 @@ import { contactInfo, contactLinks } from './contact-us.const';
 
 const ContactUs = () => {
   return (
-    <div className="mt-20 md:mt-[120px]" id="contact">
+    <div className="mt-20 md:mt-[170px]" id="contact">
       <div
         className="h-16 w-full -translate-y-1/2 bg-[length:64px_64px] md:h-[100px] md:bg-[length:100px_100px]"
         style={{
