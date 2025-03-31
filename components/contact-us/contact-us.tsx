@@ -1,9 +1,14 @@
 import Link from 'next/link';
 
-import { ArrowRightIcon } from '@/lib/svgs';
+import {
+  ArrowRightIcon,
+  LetterIcon,
+  LocationIcon,
+  PhoneIcon,
+} from '@/lib/svgs';
 import { cn } from '@/lib/utils';
 
-import { contactInfo, contactLinks } from './contact-us.const';
+import { contactLinks } from './contact-us.const';
 
 const ContactUs = () => {
   return (
@@ -57,20 +62,30 @@ const ContactUs = () => {
             </div>
 
             <div className="flex flex-col">
-              {contactInfo.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={cn(
-                    'flex w-full items-center justify-between border-b border-white/10 py-4 text-white',
-                    index === contactInfo.length - 1 && 'border-b-0 pb-0',
-                  )}
+              <div className="flex w-full items-center justify-between border-b border-white/10 py-4 text-white">
+                <LocationIcon />
+                <span className="text-lg text-white/60 md:text-xl">
+                  12 High Street, SM1 1HN Sutton
+                </span>
+              </div>
+              <div className="flex w-full items-center justify-between border-b border-white/10 py-4 text-white">
+                <PhoneIcon />
+                <a
+                  href="tel:02179534291"
+                  className="text-lg text-white/60 md:text-xl"
                 >
-                  {item.icon}
-                  <span className="text-lg text-white/60 md:text-xl">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
+                  021 7953 4291
+                </a>
+              </div>
+              <div className="flex w-full items-center justify-between border-b border-white/10 py-4 text-white">
+                <LetterIcon />
+                <a
+                  href="mailto:info@alibey.co.uk"
+                  className="text-lg text-white/60 md:text-xl"
+                >
+                  info@alibey.co.uk
+                </a>
+              </div>
             </div>
           </div>
         </div>
