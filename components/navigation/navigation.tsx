@@ -35,33 +35,35 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="relative sticky top-0 z-20 mx-4 flex h-[58px] items-center justify-between border-b border-foreground bg-background md:mx-10 md:h-16">
-      <Link href="/" className="shrink-0 text-xl md:text-2xl">
-        <span className="text-foreground">ALI </span>
-        <span className="text-red700">BEY</span>
-      </Link>
+    <nav className="relative sticky top-0 z-20 h-[58px] bg-background px-4 md:h-16 md:px-10">
+      <div className="relative flex h-full items-center justify-between border-b border-foreground">
+        <Link href="/" className="shrink-0 text-xl md:text-2xl">
+          <span className="text-foreground">ALI </span>
+          <span className="text-red700">BEY</span>
+        </Link>
 
-      <div className="hidden space-x-8 md:flex">
-        {navigationLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            target={link.target}
-            onClick={(e) => handleContactClick(e, link.href)}
-          >
-            <span
-              className={cn(
-                'text-foreground hover:underline',
-                isActive(link.href) && 'underline',
-              )}
+        <div className="hidden space-x-8 md:flex">
+          {navigationLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              target={link.target}
+              onClick={(e) => handleContactClick(e, link.href)}
             >
-              {link.label}
-            </span>
-          </Link>
-        ))}
-      </div>
+              <span
+                className={cn(
+                  'text-foreground hover:underline',
+                  isActive(link.href) && 'underline',
+                )}
+              >
+                {link.label}
+              </span>
+            </Link>
+          ))}
+        </div>
 
-      <MobileNavigation toggle={toggle} setToggle={setToggle} />
+        <MobileNavigation toggle={toggle} setToggle={setToggle} />
+      </div>
     </nav>
   );
 };
