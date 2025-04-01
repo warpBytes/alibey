@@ -7,10 +7,10 @@ import { newsAndUpdates } from './news-and-updates.const';
 const NewsAndUpdates = () => {
   return (
     <div className="content-wrapper mx-auto mb-[100px] flex flex-col gap-10 md:mb-[120px] md:gap-16">
-      <SectionHeading title="News and Updates" />
-      <div className="grid gap-10 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+      <SectionHeading title="News & Updates" />
+      <div className="mx-auto flex flex-wrap justify-center gap-10">
         {newsAndUpdates.map((item) => (
-          <div key={item.title} className="flex flex-col gap-3">
+          <div key={item.title} className="flex max-w-[466px] flex-col gap-3">
             <div className="relative h-[560px] w-full">
               <Image
                 src={item.image}
