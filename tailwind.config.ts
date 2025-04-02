@@ -36,6 +36,7 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         red700: 'var(--red700)',
+        neutral100: 'var(--neutral100)',
         neutral500: 'var(--neutral500)',
         neutral600: 'var(--neutral600)',
         pampas: 'var(--pampas)',

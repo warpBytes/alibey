@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
 
+import { BOOK_NOW_LINK } from '@/constants';
+
 import { ArrowRightIcon } from '@/lib/svgs';
 import { cn } from '@/lib/utils';
 
@@ -12,25 +14,32 @@ interface IProps {
   toggle: boolean;
   setToggle: Dispatch<SetStateAction<boolean>>;
   activeLink: string;
-  setActiveLink: Dispatch<SetStateAction<string>>;
+  handleLinkClick: (href: string) => void;
 }
 
 const MobileNavigation = ({
   toggle,
   setToggle,
   activeLink,
-  setActiveLink,
+  handleLinkClick,
 }: IProps) => {
-  const handleLinkClick = (href: string) => {
-    setActiveLink(href);
-    window.scrollTo(0, 0);
+  const handleClick = (href: string) => {
+    handleLinkClick(href);
     setToggle(false);
   };
 
   return (
     <div className="flex w-full items-center justify-end md:hidden">
+      <Link
+        href={BOOK_NOW_LINK}
+        target="_blank"
+        className="flex h-[47px] items-center justify-center gap-3 border-x border-foreground bg-pampas px-4 transition-colors duration-300 hover:bg-neutral100"
+      >
+        <span className="text-base">Book now</span>
+        <ArrowRightIcon className="h-[12.5px] w-[15px]" />
+      </Link>
       <button
-        className="z-50 flex flex-col gap-2"
+        className="z-50 mx-4 flex flex-col gap-2"
         onClick={() => setToggle(!toggle)}
       >
         <div
@@ -49,30 +58,24 @@ const MobileNavigation = ({
 
       <div
         className={cn(
-          'absolute right-0 top-20 z-50 w-full border border-foreground bg-background transition-all duration-300',
+          'absolute right-0 top-16 z-50 w-full border border-foreground bg-background transition-all duration-300',
           !toggle
             ? '-translate-x-full transform opacity-0'
             : 'flex translate-x-0 transform opacity-100',
         )}
       >
-        <nav className="flex w-full flex-col text-3xl">
-          {navigationLinks.map((link, index) => (
+        <nav className="flex w-full flex-col">
+          {navigationLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              target={link.target}
               className={cn(
                 'p-4 text-xl transition-colors',
                 activeLink === link.href && 'underline',
-                index === navigationLinks.length - 1 &&
-                  'flex items-center justify-between bg-pampas',
               )}
-              onClick={() => handleLinkClick(link.href)}
+              onClick={() => handleClick(link.href)}
             >
               {link.label}
-              {index === navigationLinks.length - 1 && (
-                <ArrowRightIcon className="h-[15px] w-[18px] text-black" />
-              )}
             </Link>
           ))}
         </nav>
