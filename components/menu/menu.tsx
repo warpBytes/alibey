@@ -70,33 +70,35 @@ const Menu = () => {
   return (
     <div className="mb-20 w-full">
       <MenuHeader />
-      <div className="content-wrapper z-20 flex flex-col gap-12 md:gap-16">
+      <div className="z-20 flex flex-col gap-12 md:gap-16">
         <SectionHeading title="Menu" className="z-10 md:mt-[-38px]" />
-        <div
-          ref={filterRef}
-          className={cn(
-            'sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background transition-all duration-300 sm:justify-center sm:gap-10',
-            isSticky ? 'border-foreground' : 'border-transparent',
-          )}
-        >
-          {menuFilters.map(({ label }) => (
-            <button key={label} onClick={() => handleFilterClick(label)}>
-              <span
-                className={cn(
-                  '!text-xl font-medium transition-colors duration-200',
-                  label !== activeFilter && 'text-neutral500',
-                )}
-              >
-                {label}
-              </span>
-              <div
-                className={cn(
-                  'h-[1px] w-full bg-foreground transition-opacity duration-200',
-                  label === activeFilter ? 'opacity-100' : 'opacity-0',
-                )}
-              />
-            </button>
-          ))}
+        <div className="sticky top-0 z-30 px-4 md:px-10">
+          <div
+            ref={filterRef}
+            className={cn(
+              'flex h-16 w-full items-center justify-between border-b bg-background transition-all duration-300 sm:justify-center sm:gap-10',
+              isSticky ? 'border-foreground' : 'border-transparent',
+            )}
+          >
+            {menuFilters.map(({ label }) => (
+              <button key={label} onClick={() => handleFilterClick(label)}>
+                <span
+                  className={cn(
+                    '!text-xl font-medium transition-colors duration-200',
+                    label !== activeFilter && 'text-neutral500',
+                  )}
+                >
+                  {label}
+                </span>
+                <div
+                  className={cn(
+                    'h-[1px] w-full bg-foreground transition-opacity duration-200',
+                    label === activeFilter ? 'opacity-100' : 'opacity-0',
+                  )}
+                />
+              </button>
+            ))}
+          </div>
         </div>
 
         {menuFilters.map(({ label }) => (
