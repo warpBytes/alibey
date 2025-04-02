@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import BookNow from '../book-now';
 import SectionHeading from '../section-heading';
 import { menuFilters } from './constants';
+import { reverseMenuSections, menuSections } from './constants/menu-sections';
 import MenuHeader from './menu-header';
 import MenuItems from './menu-items';
 
@@ -22,6 +23,27 @@ const Menu = () => {
         const { top } = filterRef.current.getBoundingClientRect();
         setIsSticky(top <= 0);
       }
+
+      const sections = Object.entries(sectionRefs.current);
+
+      for (const [sectionId, element] of sections) {
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const isInView = rect.top <= 100 && rect.bottom >= 100;
+
+          if (
+            isInView &&
+            reverseMenuSections[sectionId as keyof typeof reverseMenuSections]
+          ) {
+            setActiveFilter(
+              reverseMenuSections[
+                sectionId as keyof typeof reverseMenuSections
+              ],
+            );
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -31,15 +53,7 @@ const Menu = () => {
   const handleFilterClick = (label: string) => {
     setActiveFilter(label);
 
-    const targetSubsections = {
-      Food: 'Cold Starter',
-      Cocktails: 'Cocktails',
-      Drinks: 'Beers',
-      Wine: 'Sparkling Wines',
-    };
-
-    const targetSubsection =
-      targetSubsections[label as keyof typeof targetSubsections];
+    const targetSubsection = menuSections[label as keyof typeof menuSections];
     const sectionRef = sectionRefs.current[targetSubsection];
 
     if (sectionRef) {
@@ -87,9 +101,9 @@ const Menu = () => {
 
         {menuFilters.map(({ label }) => (
           <MenuItems
+            key={label}
             activeFilter={label}
             sectionRefs={sectionRefs}
-            key={label}
           />
         ))}
       </div>
