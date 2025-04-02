@@ -14,7 +14,7 @@ const Menu = () => {
   const [activeFilter, setActiveFilter] = useState(menuFilters[0].label);
   const [isSticky, setIsSticky] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,22 +31,26 @@ const Menu = () => {
   const handleFilterClick = (label: string) => {
     setActiveFilter(label);
 
-    setTimeout(() => {
-      if (menuRef.current) {
-        const headings = menuRef.current.getElementsByTagName('h2');
-        const firstHeading = Array.from(headings)[0];
+    const targetSubsections = {
+      Food: 'Cold Starter',
+      Cocktails: 'Cocktails',
+      Drinks: 'Beers',
+      Wine: 'Sparkling Wines',
+    };
 
-        if (firstHeading) {
-          const offset = isSticky ? 64 : 0;
-          const topOffset = firstHeading.offsetTop - offset;
+    const targetSubsection =
+      targetSubsections[label as keyof typeof targetSubsections];
+    const sectionRef = sectionRefs.current[targetSubsection];
 
-          window.scrollTo({
-            top: topOffset,
-            behavior: 'smooth',
-          });
-        }
-      }
-    }, 0);
+    if (sectionRef) {
+      const offset = isSticky ? 64 : 0;
+      const topOffset = sectionRef.offsetTop - offset;
+
+      window.scrollTo({
+        top: topOffset,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -80,7 +84,14 @@ const Menu = () => {
             </button>
           ))}
         </div>
-        <MenuItems ref={menuRef} activeFilter={activeFilter} />
+
+        {menuFilters.map(({ label }) => (
+          <MenuItems
+            activeFilter={label}
+            sectionRefs={sectionRefs}
+            key={label}
+          />
+        ))}
       </div>
       <div className="mt-16 flex items-center justify-center">
         <BookNow />
