@@ -33,14 +33,14 @@ const Navigation = () => {
 
   const handleLinkClick = (href: string) => {
     if (href.includes(CONTACT_HREF)) handleContactClick();
-    if (href !== BOOK_NOW_LINK) {
+    else {
       setActiveLink(href);
       window.scrollTo(0, 0);
     }
   };
 
   return (
-    <nav className="relative sticky top-0 z-20 h-[58px] bg-background px-4 md:h-16 md:px-10">
+    <nav className="relative sticky top-0 z-20 h-12 bg-background px-4 md:h-16 md:px-10">
       <div className="relative flex h-full items-center justify-between border-b border-foreground">
         <Link href="/" className="shrink-0 text-xl md:text-2xl">
           <span className="text-foreground">ALI </span>
@@ -78,7 +78,7 @@ const Navigation = () => {
           toggle={toggle}
           setToggle={setToggle}
           activeLink={activeLink}
-          setActiveLink={setActiveLink}
+          handleLinkClick={handleLinkClick}
         />
       </div>
     </nav>
