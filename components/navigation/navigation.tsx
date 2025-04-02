@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import { BOOK_NOW_LINK } from '@/constants';
 
+import { ArrowRightIcon } from '@/lib/svgs';
 import { cn } from '@/lib/utils';
 
 import MobileNavigation from './mobile-navigation';
@@ -46,17 +47,16 @@ const Navigation = () => {
           <span className="text-red700">BEY</span>
         </Link>
 
-        <div className="hidden space-x-8 md:flex">
+        <div className="hidden items-center space-x-8 md:flex">
           {navigationLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              target={link.target}
               onClick={() => handleLinkClick(link.href)}
             >
               <span
                 className={cn(
-                  'text-foreground hover:underline',
+                  '!text-xl text-foreground hover:underline',
                   activeLink === link.href && 'underline',
                 )}
               >
@@ -64,6 +64,14 @@ const Navigation = () => {
               </span>
             </Link>
           ))}
+          <Link
+            href={BOOK_NOW_LINK}
+            target="_blank"
+            className="flex h-[63px] items-center justify-center gap-4 border-x border-foreground bg-pampas px-6 transition-colors duration-300 hover:bg-neutral100"
+          >
+            <span className="text-xl">Book now</span>
+            <ArrowRightIcon className="h-[15px] w-[18px]" />
+          </Link>
         </div>
 
         <MobileNavigation
