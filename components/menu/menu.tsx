@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+import Lenis from 'lenis';
+
 import { cn } from '@/lib/utils';
 
 import BookNow from '../book-now';
@@ -18,6 +20,10 @@ const Menu = () => {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
+    new Lenis({
+      autoRaf: true,
+    });
+
     const handleScroll = () => {
       if (filterRef.current) {
         const { top } = filterRef.current.getBoundingClientRect();
