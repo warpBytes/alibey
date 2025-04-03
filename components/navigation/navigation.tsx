@@ -53,15 +53,17 @@ const Navigation = () => {
               key={link.href}
               href={link.href}
               onClick={() => handleLinkClick(link.href)}
+              className="group"
             >
-              <span
-                className={cn(
-                  '!text-xl text-foreground hover:underline',
-                  activeLink === link.href && 'underline',
-                )}
-              >
+              <span className="!text-xl !leading-none text-foreground">
                 {link.label}
               </span>
+              <div
+                className={cn(
+                  'h-[1px] w-0 bg-foreground opacity-0 transition-all duration-700 group-hover:w-full group-hover:opacity-100',
+                  activeLink === link.href && 'w-full opacity-100',
+                )}
+              />
             </Link>
           ))}
           <Link
