@@ -87,10 +87,14 @@ const Menu = () => {
             )}
           >
             {menuFilters.map(({ label }) => (
-              <button key={label} onClick={() => handleFilterClick(label)}>
+              <button
+                key={label}
+                onClick={() => handleFilterClick(label)}
+                className="group"
+              >
                 <span
                   className={cn(
-                    '!text-xl font-medium transition-colors duration-200',
+                    '!text-xl font-medium transition-colors duration-700 group-hover:text-foreground',
                     label !== activeFilter && 'text-neutral500',
                   )}
                 >
@@ -98,8 +102,8 @@ const Menu = () => {
                 </span>
                 <div
                   className={cn(
-                    'h-[1px] w-full bg-foreground transition-opacity duration-200',
-                    label === activeFilter ? 'opacity-100' : 'opacity-0',
+                    'h-[1px] w-0 bg-foreground opacity-0 transition-all duration-700 group-hover:w-full group-hover:opacity-100',
+                    label === activeFilter && 'w-full opacity-100',
                   )}
                 />
               </button>
