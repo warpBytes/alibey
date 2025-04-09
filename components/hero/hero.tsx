@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 import { cn } from '@/lib/utils';
 
 import { heroImages } from './hero.const';
@@ -27,11 +25,11 @@ const Hero = () => {
               index === heroImages.length - 1 && 'hidden md:block',
             )}
           >
-            <Image
+            <img
               src={image.src}
               alt={image.alt}
-              fill
-              className="border-[6px] border-transparent object-cover"
+              className="border-[6px] border-transparent object-cover w-full h-full"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
         ))}

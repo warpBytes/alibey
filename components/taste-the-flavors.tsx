@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const TasteTheFlavors = () => {
   return (
     <div className="content-wrapper mb-[100px] flex flex-col items-center gap-4 sm:mb-[200px]">
@@ -12,13 +10,11 @@ const TasteTheFlavors = () => {
         </h1>
       </div>
       <div className="relative h-[570px] w-full">
-        <Image
+        <img
           src="/images/restaurant.png"
           alt="Taste the flavors"
-          quality={100}
-          priority
-          fill
           className="object-cover"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
         />
       </div>
     </div>

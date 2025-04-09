@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import BookNow from '../book-now';
 import SectionHeading from '../section-heading';
 import { newsAndUpdates } from './news-and-updates.const';
@@ -12,12 +10,11 @@ const NewsAndUpdates = () => {
         {newsAndUpdates.map((item) => (
           <div key={item.title} className="flex max-w-[466px] flex-col gap-3">
             <div className="relative h-[560px] w-full">
-              <Image
+              <img
                 src={item.image}
                 alt={item.title}
-                quality={100}
-                priority
-                fill
+                className="object-cover"
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </div>
             <span className="text-xl md:text-2xl">{item.title}</span>

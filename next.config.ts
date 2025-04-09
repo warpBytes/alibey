@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'export',
   webpack: (config, { webpack }) => {
     config.externals.push('pino-pretty', 'lokijs', 'encoding');
     config.plugins.push(

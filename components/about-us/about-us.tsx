@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import BookNow from '../book-now';
 import SectionHeading from '../section-heading';
 
@@ -42,11 +40,11 @@ const AboutUs = () => {
           </div>
 
           <div className="relative h-[361px] w-full md:h-[480px] md:w-[587px]">
-            <Image
+            <img
               src="/images/bar.png"
               alt="Bar"
-              fill
               className="object-cover"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
         </div>
