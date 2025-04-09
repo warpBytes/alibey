@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start:export": "next build && npx serve@latest out"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
