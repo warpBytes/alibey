@@ -20,6 +20,15 @@ const Menu = () => {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
+    // Set initial filter from URL hash
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const filter = menuFilters.find(filter => filter.label === hash);
+      if (filter) {
+        setActiveFilter(filter.label);
+      }
+    }
+
     new Lenis({
       autoRaf: true,
     });
@@ -27,7 +36,7 @@ const Menu = () => {
     const handleScroll = () => {
       if (filterRef.current) {
         const { top } = filterRef.current.getBoundingClientRect();
-        setIsSticky(top <= 0);
+        setIsSticky(top <= 64);
       }
 
       const sections = Object.entries(sectionRefs.current);
@@ -35,17 +44,18 @@ const Menu = () => {
       for (const [sectionId, element] of sections) {
         if (element) {
           const rect = element.getBoundingClientRect();
-          const isInView = rect.top <= 100 && rect.bottom >= 100;
+          const isInView = rect.top <= 164 && rect.bottom >= 164;
 
           if (
             isInView &&
             reverseMenuSections[sectionId as keyof typeof reverseMenuSections]
           ) {
-            setActiveFilter(
-              reverseMenuSections[
-                sectionId as keyof typeof reverseMenuSections
-              ],
-            );
+            const newFilter = reverseMenuSections[
+              sectionId as keyof typeof reverseMenuSections
+            ];
+            setActiveFilter(newFilter);
+            // Update URL hash when filter changes from scroll
+            window.location.hash = newFilter;
             break;
           }
         }
@@ -58,12 +68,14 @@ const Menu = () => {
 
   const handleFilterClick = (label: string) => {
     setActiveFilter(label);
+    // Update URL hash when filter is clicked
+    window.location.hash = label;
 
     const targetSubsection = menuSections[label as keyof typeof menuSections];
     const sectionRef = sectionRefs.current[targetSubsection];
 
     if (sectionRef) {
-      const offset = isSticky ? 64 : 0;
+      const offset = isSticky ? 140 : 0;
       const topOffset = sectionRef.offsetTop - offset;
 
       window.scrollTo({
@@ -78,7 +90,7 @@ const Menu = () => {
       <MenuHeader />
       <div className="z-20 flex flex-col gap-12 md:gap-16">
         <SectionHeading title="Menu" className="z-10 md:mt-[-38px]" />
-        <div className="sticky top-0 z-30 px-4 md:px-10">
+        <div className="sticky top-[64px] z-30 px-4 md:px-10">
           <div
             ref={filterRef}
             className={cn(
