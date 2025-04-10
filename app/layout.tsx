@@ -27,7 +27,6 @@ export default function RootLayout({
           innerScale={1}
           outerScale={1.5}
           outerAlpha={0.2}
-          hasBlendMode={true}
           outerStyle={{
             backgroundColor: '#ece8e1',
           }}
