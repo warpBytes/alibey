@@ -8,7 +8,7 @@ interface OptionalLinkWrapperProps {
 }
 
 const OptionalLinkWrapper: React.FC<OptionalLinkWrapperProps> = ({ link, children }: OptionalLinkWrapperProps) =>
-  (!!link ? <a href={link}>{children}</a> : <>{children}</>);
+  (!!link ? <a className="flex max-w-[466px] flex-col gap-3" href={link}>{children}</a> : <div className="flex max-w-[466px] flex-col gap-3">{children}</div>);
 
 const NewsAndUpdates = () => {
   return (
@@ -16,23 +16,21 @@ const NewsAndUpdates = () => {
       <SectionHeading title="News & Updates" />
       <div className="mx-auto flex flex-wrap justify-center gap-10">
         {newsAndUpdates.map((item) => (
-          <div key={item.title} className="flex max-w-[466px] flex-col gap-3">
-            <OptionalLinkWrapper link={item.link}>
-              <div className="relative h-[560px] w-full">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover"
-                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                />
-              </div>
-              <span className="text-xl md:text-2xl">{item.title}</span>
-              <div className="h-[1px] w-full bg-foreground" />
-              <span className="text-lg text-neutral600 md:text-xl">
-                {item.description}
-              </span>
-            </OptionalLinkWrapper>
-          </div>
+          <OptionalLinkWrapper key={item.title} link={item.link}>
+            <div className="relative h-[560px] w-full">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="object-cover"
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
+            </div>
+            <span className="text-xl md:text-2xl">{item.title}</span>
+            <div className="h-[1px] w-full bg-foreground" />
+            <span className="text-lg text-neutral600 md:text-xl">
+              {item.description}
+            </span>
+          </OptionalLinkWrapper>
         ))}
       </div>
       <BookNow className="mx-auto" />
