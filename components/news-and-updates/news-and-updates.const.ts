@@ -1,5 +1,10 @@
 export const newsAndUpdates = [
   {
+    title: 'New Year\'s Menu',
+    description: 'New Year\'s Eve Celebration menu.',
+    image: '/images/news/new-years-menu.jpg',
+  },
+  {
     title: 'Festive Menu',
     description: 'Festive dining Ali Bey style.',
     image: '/images/news/festive-menu.jpg',
